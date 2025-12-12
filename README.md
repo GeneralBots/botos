@@ -4,8 +4,28 @@
 
 ## Plataformas Suportadas
 
+### Mobile
 - **Android** (AOSP, Samsung One UI, Xiaomi MIUI, etc)
 - **HarmonyOS** (Huawei, Honor)
+
+### Embedded / IoT
+- **Raspberry Pi** (Zero, 3, 4, 5) - Linux com display LCD/HDMI
+- **Orange Pi** - Alternativa econômica ao Raspberry
+- **Banana Pi** - Boards ARM com display
+- **BeagleBone** - Industrial IoT
+- **Arduino** (com ESP32/ESP8266) - Display OLED/LCD + WiFi
+- **ESP32** - Displays TFT/OLED 
+- **Rock Pi** - Boards RK3399/RK3588
+- **NVIDIA Jetson** - AI no edge com display
+- **LattePanda** - x86 embedded
+- **ODROID** - Boards Hardkernel
+
+### Displays Suportados
+- LCD Character (16x2, 20x4)
+- OLED (128x64, 128x32)
+- TFT/IPS (320x240, 480x320, 800x480)
+- E-ink/E-paper
+- HDMI (qualquer resolução)
 
 ## Níveis de Instalação
 
@@ -240,6 +260,30 @@ BotOS foi criado para vendas/parcerias na China, oferecendo:
 - Experiência simplificada para usuários finais
 - Controle total do dispositivo
 - Suporte a dispositivos HarmonyOS (Huawei/Honor)
+- Dispositivos IoT/Embedded (Raspberry Pi, ESP32, etc)
+- Quiosques e terminais de autoatendimento
+
+## Interface Embedded (LCD/Teclado)
+
+Para dispositivos com recursos limitados, use a interface embedded em `botui/ui/embedded/`:
+
+```bash
+# Raspberry Pi com display LCD
+chromium-browser --kiosk --app=http://localhost:8088/embedded/
+
+# ESP32 com display TFT (via WebView)
+# Configure BOTSERVER_URL no firmware
+
+# Terminal character mode
+# Use botui/ui/embedded/ com CONFIG.maxMsgLen ajustado
+```
+
+### Características da Interface Embedded
+- Otimizada para displays 320x240 até 16x2 caracteres
+- Alto contraste (verde/preto, e-ink)
+- Baixo consumo de memória (max 10 mensagens)
+- Navegação por teclado (Enter envia, Esc limpa)
+- Reconexão automática
 
 ## Recursos
 
