@@ -252,17 +252,6 @@ cargo tauri android dev
 adb logcat -s BotOS:*
 ```
 
-## China Partnership
-
-BotOS was created for sales/partnerships in China, offering:
-- Phones with "clean" system - no bloatware
-- Unique interface connected to General Bots
-- Simplified experience for end users
-- Full device control
-- Support for HarmonyOS devices (Huawei/Honor)
-- IoT/Embedded devices (Raspberry Pi, ESP32, etc)
-- Kiosks and self-service terminals
-
 ## Embedded Interface (LCD/Keyboard)
 
 For devices with limited resources, use the embedded interface at `botui/ui/embedded/`:
