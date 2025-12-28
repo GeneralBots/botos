@@ -1,5 +1,3 @@
-use tauri::Manager;
-
 #[cfg(target_os = "android")]
 fn init_logger() {
     android_logger::init_once(
@@ -49,12 +47,13 @@ pub fn run() {
         .plugin(tauri_plugin_http::init())
         .plugin(tauri_plugin_geolocation::init())
         .invoke_handler(tauri::generate_handler![get_device_info, send_to_bot])
-        .setup(|app| {
+        .setup(|_app| {
             log::info!("BotOS initialized, loading botui...");
 
             #[cfg(debug_assertions)]
             {
-                if let Some(window) = app.get_webview_window("main") {
+                use tauri::Manager;
+                if let Some(window) = _app.get_webview_window("main") {
                     window.open_devtools();
                 }
             }
